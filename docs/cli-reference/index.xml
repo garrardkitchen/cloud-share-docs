@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CLI Reference on Cloud Share</title><link>https://cloud-share-docs.garrardkitchen.com/docs/cli-reference/</link><description>Recent content in CLI Reference on Cloud Share</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://cloud-share-docs.garrardkitchen.com/docs/cli-reference/index.xml" rel="self" type="application/rss+xml"/><item><title>Sender CLI Reference</title><link>https://cloud-share-docs.garrardkitchen.com/docs/cli-reference/sender/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://cloud-share-docs.garrardkitchen.com/docs/cli-reference/sender/</guid><description>&lt;h1 id="sender-cli-reference"&gt;Sender CLI Reference &lt;a href="#sender-cli-reference" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;&lt;code&gt;cloud-share-sender&lt;/code&gt; is the NuGet global tool that starts the local web server, creates the Dev Tunnel, and manages the queue of items to be shared.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="synopsis"&gt;Synopsis &lt;a href="#synopsis" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock "&gt;
+ &lt;pre id="f5a1049" class="language- "&gt;
+ &lt;code&gt;cloud-share-sender [options]&lt;/code&gt;
+ &lt;/pre&gt;
+ &lt;/div&gt;
+&lt;hr&gt;
+&lt;h2 id="flags"&gt;Flags &lt;a href="#flags" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Flag&lt;/th&gt;
+ &lt;th&gt;Short&lt;/th&gt;
+ &lt;th&gt;Default&lt;/th&gt;
+ &lt;th&gt;Description&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;--port&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;-p&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;5000&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;The local port to listen on&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;--log&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;-l&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;warnings&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Log level: &lt;code&gt;verbose&lt;/code&gt;, &lt;code&gt;warnings&lt;/code&gt;, or &lt;code&gt;errors&lt;/code&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;--reset&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;Re-authenticate with DevTunnels (clears saved login)&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;--no-auto-open&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;Do not open the web UI in the browser on startup&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;--help&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;-h&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;Show help text&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;--version&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;Show the tool version&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id="flag-details"&gt;Flag details &lt;a href="#flag-details" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id="--port---p"&gt;&lt;code&gt;--port&lt;/code&gt; / &lt;code&gt;-p&lt;/code&gt; &lt;a href="#--port---p" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Sets the local TCP port the sender&amp;rsquo;s HTTP server listens on. The Dev Tunnel proxies to this port.&lt;/p&gt;</description></item><item><title>Receiver CLI Reference</title><link>https://cloud-share-docs.garrardkitchen.com/docs/cli-reference/receiver/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://cloud-share-docs.garrardkitchen.com/docs/cli-reference/receiver/</guid><description>&lt;h1 id="receiver-cli-reference"&gt;Receiver CLI Reference &lt;a href="#receiver-cli-reference" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;&lt;code&gt;cloud-share-receiver&lt;/code&gt; is the NuGet global tool that connects to a running sender via Dev Tunnel, displays the queue in a local web UI, and lets you download and verify items.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="synopsis"&gt;Synopsis &lt;a href="#synopsis" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock "&gt;
+ &lt;pre id="281909a" class="language- "&gt;
+ &lt;code&gt;cloud-share-receiver [options]&lt;/code&gt;
+ &lt;/pre&gt;
+ &lt;/div&gt;
+&lt;hr&gt;
+&lt;h2 id="flags"&gt;Flags &lt;a href="#flags" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Flag&lt;/th&gt;
+ &lt;th&gt;Short&lt;/th&gt;
+ &lt;th&gt;Default&lt;/th&gt;
+ &lt;th&gt;Description&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;--port&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;-p&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;5001&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;The local port for the receiver&amp;rsquo;s web server&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;--log&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;-l&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;warnings&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Log level: &lt;code&gt;verbose&lt;/code&gt;, &lt;code&gt;warnings&lt;/code&gt;, or &lt;code&gt;errors&lt;/code&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;--url&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;-u&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;em&gt;(prompted)&lt;/em&gt;&lt;/td&gt;
+ &lt;td&gt;The sender&amp;rsquo;s Dev Tunnel URL&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;--secret&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;-s&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;em&gt;(prompted)&lt;/em&gt;&lt;/td&gt;
+ &lt;td&gt;The session secret token from the sender&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;--no-prompt&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;Skip the interactive prompt; requires &lt;code&gt;--url&lt;/code&gt; and &lt;code&gt;--secret&lt;/code&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;--no-auto-open&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;Do not open the web UI in the browser on startup&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;--help&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;-h&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;Show help text&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;--version&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;Show the tool version&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id="flag-details"&gt;Flag details &lt;a href="#flag-details" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id="--port---p"&gt;&lt;code&gt;--port&lt;/code&gt; / &lt;code&gt;-p&lt;/code&gt; &lt;a href="#--port---p" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Sets the local TCP port for the receiver&amp;rsquo;s HTTP server.&lt;/p&gt;</description></item></channel></rss>

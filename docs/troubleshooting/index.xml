@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Troubleshooting on Cloud Share</title><link>https://cloud-share-docs.garrardkitchen.com/docs/troubleshooting/</link><description>Recent content in Troubleshooting on Cloud Share</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://cloud-share-docs.garrardkitchen.com/docs/troubleshooting/index.xml" rel="self" type="application/rss+xml"/><item><title>Installation &amp; Authentication</title><link>https://cloud-share-docs.garrardkitchen.com/docs/troubleshooting/installation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://cloud-share-docs.garrardkitchen.com/docs/troubleshooting/installation/</guid><description>&lt;h2 id="devtunnels-cli-not-found"&gt;DevTunnels CLI not found &lt;a href="#devtunnels-cli-not-found" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Symptom:&lt;/strong&gt; The sender fails to start with an error like:&lt;/p&gt;
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock "&gt;
+ &lt;pre id="ac1053b" class="language- "&gt;
+ &lt;code&gt;Error: &amp;#39;devtunnel&amp;#39; is not recognized as a command&lt;/code&gt;
+ &lt;/pre&gt;
+ &lt;/div&gt;
+&lt;p&gt;or&lt;/p&gt;
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock "&gt;
+ &lt;pre id="c326154" class="language- "&gt;
+ &lt;code&gt;DevTunnel CLI not found. Attempting auto-install...&lt;/code&gt;
+ &lt;/pre&gt;
+ &lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Cause:&lt;/strong&gt; The &lt;code&gt;devtunnel&lt;/code&gt; CLI is not in your &lt;code&gt;PATH&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Resolution:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Cloud Share will attempt to install the DevTunnels CLI automatically. If auto-install fails or you prefer manual installation:&lt;/p&gt;
+&lt;h4 id="windows"&gt;Windows &lt;a href="#windows" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h4&gt;
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock "&gt;
+ &lt;pre id="df6843c" class="language-powershell "&gt;
+ &lt;code&gt;winget install Microsoft.devtunnel&lt;/code&gt;
+ &lt;/pre&gt;
+ &lt;/div&gt;
+&lt;h4 id="macos"&gt;macOS &lt;a href="#macos" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h4&gt;
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock "&gt;
+ &lt;pre id="68ab8b5" class="language-bash "&gt;
+ &lt;code&gt;brew install --cask devtunnel&lt;/code&gt;
+ &lt;/pre&gt;
+ &lt;/div&gt;
+&lt;h4 id="linux"&gt;Linux &lt;a href="#linux" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h4&gt;
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock "&gt;
+ &lt;pre id="cf27951" class="language-bash "&gt;
+ &lt;code&gt;curl -sL https://aka.ms/DevTunnelCliInstall | bash&lt;/code&gt;
+ &lt;/pre&gt;
+ &lt;/div&gt;
+&lt;p&gt;After installation, open a &lt;strong&gt;new terminal window&lt;/strong&gt; (to pick up the updated PATH) and try again.&lt;/p&gt;</description></item><item><title>Connectivity &amp; Secret Issues</title><link>https://cloud-share-docs.garrardkitchen.com/docs/troubleshooting/connectivity/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://cloud-share-docs.garrardkitchen.com/docs/troubleshooting/connectivity/</guid><description>&lt;h2 id="connection-refused--receiver-cannot-connect"&gt;Connection refused / receiver cannot connect &lt;a href="#connection-refused--receiver-cannot-connect" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Symptom:&lt;/strong&gt; The receiver shows:&lt;/p&gt;
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock "&gt;
+ &lt;pre id="6285705" class="language- "&gt;
+ &lt;code&gt;Error: Connection refused&lt;/code&gt;
+ &lt;/pre&gt;
+ &lt;/div&gt;
+&lt;p&gt;or the queue never loads and the status badge shows &lt;strong&gt;Disconnected&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Cause:&lt;/strong&gt; One of several things:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The sender is not running&lt;/li&gt;
+&lt;li&gt;The wrong tunnel URL was entered&lt;/li&gt;
+&lt;li&gt;The Dev Tunnel has expired (sender was stopped and restarted with a new URL)&lt;/li&gt;
+&lt;li&gt;A firewall is blocking &lt;code&gt;*.devtunnels.ms:443&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Resolution:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Verify the sender is running and shows a tunnel URL in its output&lt;/li&gt;
+&lt;li&gt;Confirm the receiver is using the exact URL from the current sender session (URLs change on each restart)&lt;/li&gt;
+&lt;li&gt;Test connectivity: &lt;code&gt;curl -I https://&amp;lt;tunnel-url&amp;gt;&lt;/code&gt; — you should get a 200 or 401 response&lt;/li&gt;
+&lt;li&gt;Check your firewall allows outbound HTTPS to &lt;code&gt;*.devtunnels.ms:443&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;If you restarted the sender, start the receiver fresh with the new URL and secret:&lt;/p&gt;</description></item><item><title>UI &amp; Queue Issues</title><link>https://cloud-share-docs.garrardkitchen.com/docs/troubleshooting/ui-issues/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://cloud-share-docs.garrardkitchen.com/docs/troubleshooting/ui-issues/</guid><description>&lt;h2 id="queue-appears-blank--items-dont-appear"&gt;Queue appears blank / items don&amp;rsquo;t appear &lt;a href="#queue-appears-blank--items-dont-appear" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Symptom:&lt;/strong&gt; The receiver queue is empty even though the sender has items queued.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Cause:&lt;/strong&gt; This is usually a stale page or SSE connection issue.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Resolution:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Refresh the receiver browser tab&lt;/strong&gt; (&lt;code&gt;F5&lt;/code&gt; or &lt;code&gt;Cmd+R&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Check the connection status badge — if it shows &lt;strong&gt;Reconnecting&lt;/strong&gt; or &lt;strong&gt;Disconnected&lt;/strong&gt;, wait for it to turn green&lt;/li&gt;
+&lt;li&gt;If the badge stays disconnected, verify the sender is still running&lt;/li&gt;
+&lt;li&gt;If items were queued before the receiver connected, they should appear after the initial queue load on connect&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id="invalid-date-or-garbled-text-in-queue"&gt;&amp;ldquo;Invalid Date&amp;rdquo; or garbled text in queue &lt;a href="#invalid-date-or-garbled-text-in-queue" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Symptom:&lt;/strong&gt; Dates or text in the queue display as &amp;ldquo;Invalid Date&amp;rdquo; or appear garbled.&lt;/p&gt;</description></item></channel></rss>

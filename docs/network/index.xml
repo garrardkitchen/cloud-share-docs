@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Network Requirements on Cloud Share</title><link>https://cloud-share-docs.garrardkitchen.com/docs/network/</link><description>Recent content in Network Requirements on Cloud Share</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://cloud-share-docs.garrardkitchen.com/docs/network/index.xml" rel="self" type="application/rss+xml"/><item><title>Allowed Hosts &amp; Ports</title><link>https://cloud-share-docs.garrardkitchen.com/docs/network/requirements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://cloud-share-docs.garrardkitchen.com/docs/network/requirements/</guid><description>&lt;h2 id="sender-machine"&gt;Sender machine &lt;a href="#sender-machine" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The sender machine needs outbound access to the following hosts on port &lt;strong&gt;443 (HTTPS)&lt;/strong&gt;:&lt;/p&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Host&lt;/th&gt;
+ &lt;th&gt;Purpose&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;*.devtunnels.ms&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Dev Tunnel relay — all tunnel traffic&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;global.rel.tunnels.api.visualstudio.com&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Dev Tunnels management API&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;login.microsoftonline.com&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Microsoft OAuth (Microsoft account login)&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;login.live.com&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Microsoft personal account login&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;github.com&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;GitHub OAuth (GitHub account login)&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;aka.ms&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Microsoft shortlinks (DevTunnel CLI installer redirect)&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;cdn.jsdelivr.net&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Bootstrap 5, Bootstrap Icons, Alpine.js (sender web UI CDN)&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;ℹ️ Info:&lt;/strong&gt; &lt;code&gt;*.devtunnels.ms&lt;/code&gt; is a wildcard — the tunnel URL is a unique subdomain generated per session (e.g. &lt;code&gt;abc123.devtunnels.ms&lt;/code&gt;). Your firewall rule must allow all subdomains.&lt;/p&gt;</description></item><item><title>Proxy Environments</title><link>https://cloud-share-docs.garrardkitchen.com/docs/network/proxy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://cloud-share-docs.garrardkitchen.com/docs/network/proxy/</guid><description>&lt;p&gt;If your network requires a proxy for outbound HTTPS, configure it via the standard .NET environment variables before starting either tool.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="configuration"&gt;Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock "&gt;
+ &lt;pre id="1a86c15" class="language-bash "&gt;
+ &lt;code&gt;# Linux / macOS
+export HTTPS_PROXY=http://proxy.corp.example.com:8080
+cloud-share-sender
+
+# Windows (PowerShell)
+$env:HTTPS_PROXY = &amp;#34;http://proxy.corp.example.com:8080&amp;#34;
+cloud-share-sender&lt;/code&gt;
+ &lt;/pre&gt;
+ &lt;/div&gt;
+&lt;p&gt;The &lt;code&gt;devtunnel&lt;/code&gt; CLI respects system proxy settings on Windows. On Linux/macOS, set &lt;code&gt;HTTPS_PROXY&lt;/code&gt; before running &lt;code&gt;cloud-share-sender&lt;/code&gt; or &lt;code&gt;cloud-share-receiver&lt;/code&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="authenticated-proxies"&gt;Authenticated proxies &lt;a href="#authenticated-proxies" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;If your proxy requires credentials, include them in the URL:&lt;/p&gt;</description></item></channel></rss>

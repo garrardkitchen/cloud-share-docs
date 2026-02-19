@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Security on Cloud Share</title><link>https://cloud-share-docs.garrardkitchen.com/docs/security/</link><description>Recent content in Security on Cloud Share</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://cloud-share-docs.garrardkitchen.com/docs/security/index.xml" rel="self" type="application/rss+xml"/><item><title>Encryption Architecture</title><link>https://cloud-share-docs.garrardkitchen.com/docs/security/architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://cloud-share-docs.garrardkitchen.com/docs/security/architecture/</guid><description>&lt;h1 id="encryption-architecture"&gt;Encryption Architecture &lt;a href="#encryption-architecture" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;This page documents the complete security architecture of cloud-share, including every cryptographic operation performed on items in transit.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="end-to-end-encryption-model"&gt;End-to-end encryption model &lt;a href="#end-to-end-encryption-model" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Cloud Share encrypts content at the application layer on the sender before it leaves the process memory. The Dev Tunnel and HTTPS add a second layer of transport encryption. The receiver decrypts at the application layer after downloading.&lt;/p&gt;
+&lt;pre class="mermaid"&gt;sequenceDiagram
+ participant SP as Sender Process
+ participant DT as Dev Tunnel / HTTPS
+ participant RP as Receiver Process
+
+ SP-&amp;gt;&amp;gt;SP: SHA-512(plaintext) → stored
+ SP-&amp;gt;&amp;gt;SP: AES-256-GCM encrypt&amp;lt;br/&amp;gt;(key=SHA-256(secret), nonce=random 12B)
+ SP-&amp;gt;&amp;gt;SP: Base64(nonce ‖ cipher ‖ tag)
+ SP-&amp;gt;&amp;gt;DT: Send over HTTPS/TLS
+ DT-&amp;gt;&amp;gt;RP: Encrypted payload
+ RP-&amp;gt;&amp;gt;RP: Base64 decode
+ RP-&amp;gt;&amp;gt;RP: AES-256-GCM decrypt
+ RP-&amp;gt;&amp;gt;RP: SHA-512 verify
+ RP-&amp;gt;&amp;gt;RP: ✅ Plaintext content delivered
+&lt;/pre&gt;
+&lt;hr&gt;
+&lt;h2 id="key-derivation"&gt;Key derivation &lt;a href="#key-derivation" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id="secret-generation"&gt;Secret generation &lt;a href="#secret-generation" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;On each sender start, a &lt;strong&gt;12-character alphanumeric secret&lt;/strong&gt; is generated using a cryptographically secure random number generator. It is:&lt;/p&gt;</description></item><item><title>Security Best Practices</title><link>https://cloud-share-docs.garrardkitchen.com/docs/security/best-practices/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://cloud-share-docs.garrardkitchen.com/docs/security/best-practices/</guid><description>&lt;h1 id="security-best-practices"&gt;Security Best Practices &lt;a href="#security-best-practices" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Cloud Share is designed to be secure by default, but the security of any transfer ultimately depends on how you use it. Follow these practices to ensure your transfers remain private and tamper-proof.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="share-the-secret-through-a-separate-secure-channel"&gt;Share the secret through a separate secure channel &lt;a href="#share-the-secret-through-a-separate-secure-channel" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The tunnel URL and the secret token together are the keys to your transfer. Never send them together through an insecure channel.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;✅ Do:&lt;/strong&gt;&lt;/p&gt;</description></item></channel></rss>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Features on Cloud Share</title><link>https://cloud-share-docs.garrardkitchen.com/docs/features/</link><description>Recent content in Features on Cloud Share</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://cloud-share-docs.garrardkitchen.com/docs/features/index.xml" rel="self" type="application/rss+xml"/><item><title>Text Sharing</title><link>https://cloud-share-docs.garrardkitchen.com/docs/features/text-sharing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://cloud-share-docs.garrardkitchen.com/docs/features/text-sharing/</guid><description>&lt;h1 id="text-sharing"&gt;Text Sharing &lt;a href="#text-sharing" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Text sharing is the fastest way to send a snippet — a command, a password, a code block, or any plain text up to &lt;strong&gt;10 MB&lt;/strong&gt; — from one machine to another.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="sending-text"&gt;Sending text &lt;a href="#sending-text" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id="in-the-sender-ui"&gt;In the sender UI &lt;a href="#in-the-sender-ui" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Open the sender web UI (auto-opens at &lt;code&gt;http://localhost:5000&lt;/code&gt;, or re-open via browser)&lt;/li&gt;
+&lt;li&gt;Click the &lt;strong&gt;Text&lt;/strong&gt; tab&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;📸 Screenshot needed:&lt;/strong&gt; &lt;code&gt;text-sharing-sender-tab.png&lt;/code&gt;
+&lt;em&gt;Description: Sender web UI with the Text tab selected, showing the text area and Share button&lt;/em&gt;&lt;/p&gt;</description></item><item><title>File Transfer</title><link>https://cloud-share-docs.garrardkitchen.com/docs/features/file-transfer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://cloud-share-docs.garrardkitchen.com/docs/features/file-transfer/</guid><description>&lt;h1 id="file-transfer"&gt;File Transfer &lt;a href="#file-transfer" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Cloud Share can transfer individual files up to &lt;strong&gt;100 MB&lt;/strong&gt; — encrypted in transit with AES-256-GCM and verified on arrival with SHA-512.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="uploading-a-file"&gt;Uploading a file &lt;a href="#uploading-a-file" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id="in-the-sender-ui"&gt;In the sender UI &lt;a href="#in-the-sender-ui" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Open the sender web UI (&lt;code&gt;http://localhost:5000&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Click the &lt;strong&gt;File&lt;/strong&gt; tab&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;📸 Screenshot needed:&lt;/strong&gt; &lt;code&gt;file-transfer-sender-tab.png&lt;/code&gt;
+&lt;em&gt;Description: Sender web UI with the File tab selected, showing the drag-and-drop zone&lt;/em&gt;&lt;/p&gt;
+&lt;ol start="3"&gt;
+&lt;li&gt;Either:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Drag and drop&lt;/strong&gt; a file onto the drop zone&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Browse&lt;/strong&gt; (or the drop zone) to open a file picker&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;📸 Screenshot needed:&lt;/strong&gt; &lt;code&gt;file-transfer-sender-dragdrop.png&lt;/code&gt;
+&lt;em&gt;Description: File tab with a file being dragged onto the drop zone, showing the hover state&lt;/em&gt;&lt;/p&gt;</description></item><item><title>Zip Bundles</title><link>https://cloud-share-docs.garrardkitchen.com/docs/features/zip-bundles/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://cloud-share-docs.garrardkitchen.com/docs/features/zip-bundles/</guid><description>&lt;h1 id="zip-bundles"&gt;Zip Bundles &lt;a href="#zip-bundles" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;The &lt;strong&gt;Zip Bundle&lt;/strong&gt; feature lets you package multiple files into a single encrypted archive and send them as one queue item. You can optionally add an AES-256 zip-level password for an additional layer of protection on top of the transport encryption.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="creating-a-zip-bundle"&gt;Creating a zip bundle &lt;a href="#creating-a-zip-bundle" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id="in-the-sender-ui"&gt;In the sender UI &lt;a href="#in-the-sender-ui" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Open the sender web UI (&lt;code&gt;http://localhost:5000&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Click the &lt;strong&gt;Zip Bundle&lt;/strong&gt; tab&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;📸 Screenshot needed:&lt;/strong&gt; &lt;code&gt;zip-bundles-sender-tab.png&lt;/code&gt;
+&lt;em&gt;Description: Sender web UI with the Zip Bundle tab selected, showing the multi-file drop zone and password field&lt;/em&gt;&lt;/p&gt;</description></item><item><title>Encryption &amp; Integrity</title><link>https://cloud-share-docs.garrardkitchen.com/docs/features/encryption/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://cloud-share-docs.garrardkitchen.com/docs/features/encryption/</guid><description>&lt;h1 id="encryption--integrity"&gt;Encryption &amp;amp; Integrity &lt;a href="#encryption--integrity" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;This page provides a complete technical description of how cloud-share encrypts every item and verifies its integrity on arrival.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="overview"&gt;Overview &lt;a href="#overview" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Every item queued by the sender goes through the following pipeline before being stored in memory:&lt;/p&gt;
+&lt;pre class="mermaid"&gt;flowchart TD
+ A[Plaintext content] --&amp;gt; B[SHA-512 hash computed]
+ A --&amp;gt; C[&amp;#34;AES-256-GCM encrypt(key, nonce, plaintext)&amp;#34;]
+ B --&amp;gt; D[Hash stored with item metadata]
+ C --&amp;gt; E[&amp;#34;Payload: nonce 12B || ciphertext || auth tag 16B&amp;#34;]
+ E --&amp;gt; F[Base64-encode entire payload]
+ F --&amp;gt; G[Stored in queue, served to receiver]
+&lt;/pre&gt;
+&lt;hr&gt;
+&lt;h2 id="key-derivation"&gt;Key derivation &lt;a href="#key-derivation" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The AES-256 encryption key is derived from the session secret using &lt;strong&gt;SHA-256&lt;/strong&gt;:&lt;/p&gt;</description></item><item><title>Web UI</title><link>https://cloud-share-docs.garrardkitchen.com/docs/features/web-ui/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://cloud-share-docs.garrardkitchen.com/docs/features/web-ui/</guid><description>&lt;h1 id="web-ui"&gt;Web UI &lt;a href="#web-ui" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Both &lt;code&gt;cloud-share-sender&lt;/code&gt; and &lt;code&gt;cloud-share-receiver&lt;/code&gt; include a built-in web UI that opens automatically in your default browser when you start the tool. The UI is built with &lt;strong&gt;Bootstrap 5&lt;/strong&gt;, &lt;strong&gt;Alpine.js&lt;/strong&gt;, and a &lt;strong&gt;dark theme&lt;/strong&gt; — no installation required, everything is served by the tool itself (CDN resources loaded from jsDelivr).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="sender-ui"&gt;Sender UI &lt;a href="#sender-ui" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The sender UI is served at &lt;code&gt;http://localhost:5000&lt;/code&gt; (or your custom port).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;📸 Screenshot needed:&lt;/strong&gt; &lt;code&gt;web-ui-sender-overview.png&lt;/code&gt;
+&lt;em&gt;Description: Full sender web UI showing the tab bar (Text, File, Zip Bundle), the queue table below, and the dark theme&lt;/em&gt;&lt;/p&gt;</description></item><item><title>Real-Time Updates</title><link>https://cloud-share-docs.garrardkitchen.com/docs/features/real-time-updates/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://cloud-share-docs.garrardkitchen.com/docs/features/real-time-updates/</guid><description>&lt;h1 id="real-time-updates"&gt;Real-Time Updates &lt;a href="#real-time-updates" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Cloud Share uses &lt;strong&gt;Server-Sent Events (SSE)&lt;/strong&gt; to push queue changes from the sender to the receiver instantly — no polling, no page refresh.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="how-sse-works-in-cloud-share"&gt;How SSE works in cloud-share &lt;a href="#how-sse-works-in-cloud-share" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;When the receiver UI loads, it opens a persistent HTTP connection to the sender&amp;rsquo;s event stream endpoint:&lt;/p&gt;
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock "&gt;
+ &lt;pre id="261202d" class="language- "&gt;
+ &lt;code&gt;GET /events?secret=&amp;lt;your-secret&amp;gt;&lt;/code&gt;
+ &lt;/pre&gt;
+ &lt;/div&gt;
+&lt;p&gt;The sender keeps this connection open and pushes newline-delimited JSON events whenever the queue changes. The browser&amp;rsquo;s native &lt;code&gt;EventSource&lt;/code&gt; API (used by Alpine.js) handles reconnection automatically.&lt;/p&gt;</description></item></channel></rss>
