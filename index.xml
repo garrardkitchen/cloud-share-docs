@@ -47,7 +47,7 @@
  participant RP as Receiver Process
 
  SP-&amp;gt;&amp;gt;SP: SHA-512(plaintext) → stored
- SP-&amp;gt;&amp;gt;SP: AES-256-GCM encrypt&amp;lt;br/&amp;gt;(key=SHA-256(secret), nonce=random 12B)
+ SP-&amp;gt;&amp;gt;SP: AES-256-GCM encrypt&amp;lt;br/&amp;gt;(key=HKDF-SHA256(secret), nonce=random 12B)
  SP-&amp;gt;&amp;gt;SP: Base64(nonce ‖ cipher ‖ tag)
  SP-&amp;gt;&amp;gt;DT: Send over HTTPS/TLS
  DT-&amp;gt;&amp;gt;RP: Encrypted payload
@@ -431,7 +431,60 @@ cloud-share-sender&lt;/code&gt;
 &lt;h2 id="share-the-secret-through-a-separate-secure-channel"&gt;Share the secret through a separate secure channel &lt;a href="#share-the-secret-through-a-separate-secure-channel" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The tunnel URL and the secret token together are the keys to your transfer. Never send them together through an insecure channel.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;✅ Do:&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>Core Concepts</title><link>https://cloud-share-docs.garrardkitchen.com/docs/getting-started/concepts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://cloud-share-docs.garrardkitchen.com/docs/getting-started/concepts/</guid><description>&lt;h1 id="core-concepts"&gt;Core Concepts &lt;a href="#core-concepts" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Before diving into advanced features, it helps to understand the building blocks that make cloud-share work. This page explains each concept at a level that will inform how you use the tool day-to-day.&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id="dev-tunnels"&gt;Dev Tunnels &lt;a href="#dev-tunnels" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;A &lt;strong&gt;Microsoft Dev Tunnel&lt;/strong&gt; is an outbound HTTPS connection from the sender machine to Microsoft&amp;rsquo;s relay infrastructure. It creates a publicly accessible URL (e.g. &lt;code&gt;https://abc123.devtunnels.ms&lt;/code&gt;) that proxies all requests back to the sender&amp;rsquo;s local port 5000.&lt;/p&gt;</description></item><item><title>UI &amp; Queue Issues</title><link>https://cloud-share-docs.garrardkitchen.com/docs/troubleshooting/ui-issues/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://cloud-share-docs.garrardkitchen.com/docs/troubleshooting/ui-issues/</guid><description>&lt;h2 id="queue-appears-blank--items-dont-appear"&gt;Queue appears blank / items don&amp;rsquo;t appear &lt;a href="#queue-appears-blank--items-dont-appear" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Symptom:&lt;/strong&gt; The receiver queue is empty even though the sender has items queued.&lt;/p&gt;
+&lt;h2 id="dev-tunnels"&gt;Dev Tunnels &lt;a href="#dev-tunnels" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;A &lt;strong&gt;Microsoft Dev Tunnel&lt;/strong&gt; is an outbound HTTPS connection from the sender machine to Microsoft&amp;rsquo;s relay infrastructure. It creates a publicly accessible URL (e.g. &lt;code&gt;https://abc123.devtunnels.ms&lt;/code&gt;) that proxies all requests back to the sender&amp;rsquo;s local port 5000.&lt;/p&gt;</description></item><item><title>Security Features</title><link>https://cloud-share-docs.garrardkitchen.com/docs/security/security-features/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://cloud-share-docs.garrardkitchen.com/docs/security/security-features/</guid><description>&lt;h1 id="security-features"&gt;Security Features &lt;a href="#security-features" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;This page catalogues every security control implemented in cloud-share. Each control lists its industry-standard framework reference, the component it applies to, and the threat it addresses.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Frameworks referenced on this page:&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Abbreviation&lt;/th&gt;
+ &lt;th&gt;Standard&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;OWASP&lt;/td&gt;
+ &lt;td&gt;&lt;a href="https://owasp.org/Top10/" rel="external" target="_blank"&gt;OWASP Top 10 (2021)&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"&gt;&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;NIST 800-53&lt;/td&gt;
+ &lt;td&gt;&lt;a href="https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final" rel="external" target="_blank"&gt;NIST SP 800-53 Rev. 5 — Security &amp;amp; Privacy Controls&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"&gt;&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;NIST 800-132&lt;/td&gt;
+ &lt;td&gt;&lt;a href="https://csrc.nist.gov/publications/detail/sp/800-132/final" rel="external" target="_blank"&gt;NIST SP 800-132 — Password-Based Key Derivation&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"&gt;&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;NIST 800-52&lt;/td&gt;
+ &lt;td&gt;&lt;a href="https://csrc.nist.gov/publications/detail/sp/800-52/rev-2/final" rel="external" target="_blank"&gt;NIST SP 800-52 Rev. 2 — TLS Guidelines&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"&gt;&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;NIST CSF&lt;/td&gt;
+ &lt;td&gt;&lt;a href="https://www.nist.gov/cyberframework" rel="external" target="_blank"&gt;NIST Cybersecurity Framework 2.0&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"&gt;&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;RFC 5869&lt;/td&gt;
+ &lt;td&gt;&lt;a href="https://www.rfc-editor.org/rfc/rfc5869" rel="external" target="_blank"&gt;HKDF — HMAC-based Key Derivation Function&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"&gt;&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;FIPS 197&lt;/td&gt;
+ &lt;td&gt;&lt;a href="https://csrc.nist.gov/publications/detail/fips/197/final" rel="external" target="_blank"&gt;AES — Advanced Encryption Standard&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"&gt;&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;FIPS 198-1&lt;/td&gt;
+ &lt;td&gt;&lt;a href="https://csrc.nist.gov/publications/detail/fips/198/1/final" rel="external" target="_blank"&gt;HMAC&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"&gt;&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;STRIDE&lt;/td&gt;
+ &lt;td&gt;&lt;a href="https://learn.microsoft.com/azure/security/develop/threat-modeling-tool-threats" rel="external" target="_blank"&gt;STRIDE Threat Model&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"&gt;&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;CWE&lt;/td&gt;
+ &lt;td&gt;&lt;a href="https://cwe.mitre.org/" rel="external" target="_blank"&gt;MITRE Common Weakness Enumeration&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"&gt;&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id="transit--cryptography"&gt;Transit &amp;amp; Cryptography &lt;a href="#transit--cryptography" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Controls protecting data as it crosses physical network boundaries.&lt;/p&gt;</description></item><item><title>UI &amp; Queue Issues</title><link>https://cloud-share-docs.garrardkitchen.com/docs/troubleshooting/ui-issues/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://cloud-share-docs.garrardkitchen.com/docs/troubleshooting/ui-issues/</guid><description>&lt;h2 id="queue-appears-blank--items-dont-appear"&gt;Queue appears blank / items don&amp;rsquo;t appear &lt;a href="#queue-appears-blank--items-dont-appear" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Symptom:&lt;/strong&gt; The receiver queue is empty even though the sender has items queued.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Cause:&lt;/strong&gt; This is usually a stale page or SSE connection issue.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Resolution:&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
@@ -460,13 +513,11 @@ cloud-share-sender&lt;/code&gt;
  F --&amp;gt; G[Stored in queue, served to receiver]
 &lt;/pre&gt;
 &lt;hr&gt;
-&lt;h2 id="key-derivation"&gt;Key derivation &lt;a href="#key-derivation" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The AES-256 encryption key is derived from the session secret using &lt;strong&gt;SHA-256&lt;/strong&gt;:&lt;/p&gt;</description></item><item><title>Web UI</title><link>https://cloud-share-docs.garrardkitchen.com/docs/features/web-ui/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://cloud-share-docs.garrardkitchen.com/docs/features/web-ui/</guid><description>&lt;h1 id="web-ui"&gt;Web UI &lt;a href="#web-ui" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Both &lt;code&gt;cloud-share-sender&lt;/code&gt; and &lt;code&gt;cloud-share-receiver&lt;/code&gt; include a built-in web UI that opens automatically in your default browser when you start the tool. The UI is built with &lt;strong&gt;Bootstrap 5&lt;/strong&gt;, &lt;strong&gt;Alpine.js&lt;/strong&gt;, and a &lt;strong&gt;dark theme&lt;/strong&gt; — no installation required, everything is served by the tool itself (CDN resources loaded from jsDelivr).&lt;/p&gt;
+&lt;h2 id="key-derivation"&gt;Key derivation &lt;a href="#key-derivation" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The AES-256 encryption key is derived from the session secret using &lt;strong&gt;HKDF-SHA256&lt;/strong&gt; (RFC 5869 / NIST SP 800-56C):&lt;/p&gt;</description></item><item><title>Web UI</title><link>https://cloud-share-docs.garrardkitchen.com/docs/features/web-ui/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://cloud-share-docs.garrardkitchen.com/docs/features/web-ui/</guid><description>&lt;h1 id="web-ui"&gt;Web UI &lt;a href="#web-ui" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Both &lt;code&gt;cloud-share-sender&lt;/code&gt; and &lt;code&gt;cloud-share-receiver&lt;/code&gt; include a built-in web UI that opens automatically in your default browser when you start the tool. The UI is built with &lt;strong&gt;Bootstrap 5&lt;/strong&gt;, &lt;strong&gt;Alpine.js&lt;/strong&gt;, and a &lt;strong&gt;dark theme&lt;/strong&gt; — no installation required, everything is served by the tool itself (CDN resources loaded from jsDelivr).&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id="sender-ui"&gt;Sender UI &lt;a href="#sender-ui" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The sender UI is served at &lt;code&gt;http://localhost:5000&lt;/code&gt; (or your custom port).&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;📸 Screenshot needed:&lt;/strong&gt; &lt;code&gt;web-ui-sender-overview.png&lt;/code&gt;
-&lt;em&gt;Description: Full sender web UI showing the tab bar (Text, File, Zip Bundle), the queue table below, and the dark theme&lt;/em&gt;&lt;/p&gt;</description></item><item><title>Real-Time Updates</title><link>https://cloud-share-docs.garrardkitchen.com/docs/features/real-time-updates/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://cloud-share-docs.garrardkitchen.com/docs/features/real-time-updates/</guid><description>&lt;h1 id="real-time-updates"&gt;Real-Time Updates &lt;a href="#real-time-updates" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Cloud Share uses &lt;strong&gt;Server-Sent Events (SSE)&lt;/strong&gt; to push queue changes from the sender to the receiver instantly — no polling, no page refresh.&lt;/p&gt;
+&lt;h2 id="sender-ui"&gt;Sender UI &lt;a href="#sender-ui" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The sender UI is served at &lt;code&gt;http://localhost:5000&lt;/code&gt; (or your custom port), but &lt;strong&gt;direct navigation without a token returns &lt;code&gt;401 Unauthorized&lt;/code&gt;&lt;/strong&gt;. The UI is protected by a one-time access token generated at sender startup.&lt;/p&gt;</description></item><item><title>Real-Time Updates</title><link>https://cloud-share-docs.garrardkitchen.com/docs/features/real-time-updates/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://cloud-share-docs.garrardkitchen.com/docs/features/real-time-updates/</guid><description>&lt;h1 id="real-time-updates"&gt;Real-Time Updates &lt;a href="#real-time-updates" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Cloud Share uses &lt;strong&gt;Server-Sent Events (SSE)&lt;/strong&gt; to push queue changes from the sender to the receiver instantly — no polling, no page refresh.&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id="how-sse-works-in-cloud-share"&gt;How SSE works in cloud-share &lt;a href="#how-sse-works-in-cloud-share" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;When the receiver UI loads, it opens a persistent HTTP connection to the sender&amp;rsquo;s event stream endpoint:&lt;/p&gt;
+&lt;h2 id="how-sse-works-in-cloud-share"&gt;How SSE works in cloud-share &lt;a href="#how-sse-works-in-cloud-share" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;When the receiver UI loads, it opens a persistent HTTP connection to the sender&amp;rsquo;s event stream endpoint using SSE authentication via a &lt;code&gt;local_token&lt;/code&gt; HttpOnly cookie (the &lt;code&gt;EventSource&lt;/code&gt; API cannot set custom headers):&lt;/p&gt;
 
 
 
@@ -482,8 +533,9 @@ cloud-share-sender&lt;/code&gt;
  
 
  &lt;div class="prism-codeblock "&gt;
- &lt;pre id="261202d" class="language- "&gt;
- &lt;code&gt;GET /events?secret=&amp;lt;your-secret&amp;gt;&lt;/code&gt;
+ &lt;pre id="2183af3" class="language- "&gt;
+ &lt;code&gt;GET /events
+Cookie: local_token=&amp;lt;localToken&amp;gt;&lt;/code&gt;
  &lt;/pre&gt;
  &lt;/div&gt;
 &lt;p&gt;The sender keeps this connection open and pushes newline-delimited JSON events whenever the queue changes. The browser&amp;rsquo;s native &lt;code&gt;EventSource&lt;/code&gt; API (used by Alpine.js) handles reconnection automatically.&lt;/p&gt;</description></item></channel></rss>
