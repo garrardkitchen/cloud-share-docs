@@ -38,7 +38,7 @@
  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;ℹ️ Info:&lt;/strong&gt; &lt;code&gt;*.devtunnels.ms&lt;/code&gt; is a wildcard — the tunnel URL is a unique subdomain generated per session (e.g. &lt;code&gt;abc123.devtunnels.ms&lt;/code&gt;). Your firewall rule must allow all subdomains.&lt;/p&gt;</description></item><item><title>Proxy Environments</title><link>https://cloud-share-docs.garrardkitchen.com/docs/network/proxy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://cloud-share-docs.garrardkitchen.com/docs/network/proxy/</guid><description>&lt;p&gt;If your network requires a proxy for outbound HTTPS, configure it via the standard .NET environment variables before starting either tool.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ℹ️ Info:&lt;/strong&gt; &lt;code&gt;*.devtunnels.ms&lt;/code&gt; is a wildcard — the tunnel URL is unique per session (e.g. &lt;code&gt;mtszwr0l.uks1.devtunnels.ms&lt;/code&gt;). Your firewall rule must allow all subdomains.&lt;/p&gt;</description></item><item><title>Proxy Environments</title><link>https://cloud-share-docs.garrardkitchen.com/docs/network/proxy/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://cloud-share-docs.garrardkitchen.com/docs/network/proxy/</guid><description>&lt;p&gt;If your network requires a proxy for outbound HTTPS, configure it via the standard .NET environment variables before starting either tool.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id="configuration"&gt;Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;
 

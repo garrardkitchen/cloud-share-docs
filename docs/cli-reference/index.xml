@@ -117,7 +117,13 @@
  &lt;td&gt;&lt;code&gt;--url&lt;/code&gt;&lt;/td&gt;
  &lt;td&gt;&lt;code&gt;-u&lt;/code&gt;&lt;/td&gt;
  &lt;td&gt;&lt;em&gt;(prompted)&lt;/em&gt;&lt;/td&gt;
- &lt;td&gt;The sender&amp;rsquo;s Dev Tunnel URL&lt;/td&gt;
+ &lt;td&gt;The full sender Dev Tunnel URL&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;--code&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;-c&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;em&gt;(prompted)&lt;/em&gt;&lt;/td&gt;
+ &lt;td&gt;Tunnel shorthand: &lt;code&gt;{id}.{region}:{port}&lt;/code&gt; (e.g. &lt;code&gt;mtszwr0l.uks1:5000&lt;/code&gt;)&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr&gt;
  &lt;td&gt;&lt;code&gt;--secret&lt;/code&gt;&lt;/td&gt;
@@ -129,7 +135,7 @@
  &lt;td&gt;&lt;code&gt;--no-prompt&lt;/code&gt;&lt;/td&gt;
  &lt;td&gt;&lt;/td&gt;
  &lt;td&gt;&lt;/td&gt;
- &lt;td&gt;Skip the interactive prompt; requires &lt;code&gt;--url&lt;/code&gt; and &lt;code&gt;--secret&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Skip the interactive prompt; requires &lt;code&gt;--url&lt;/code&gt; (or &lt;code&gt;--code&lt;/code&gt;) and &lt;code&gt;--secret&lt;/code&gt;&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr&gt;
  &lt;td&gt;&lt;code&gt;--no-auto-open&lt;/code&gt;&lt;/td&gt;

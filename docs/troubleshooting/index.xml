@@ -122,15 +122,15 @@
 &lt;p&gt;&lt;strong&gt;Cause:&lt;/strong&gt; One of several things:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;The sender is not running&lt;/li&gt;
-&lt;li&gt;The wrong tunnel URL was entered&lt;/li&gt;
+&lt;li&gt;The wrong tunnel ID, region, or port was entered&lt;/li&gt;
 &lt;li&gt;The Dev Tunnel has expired (sender was stopped and restarted with a new URL)&lt;/li&gt;
 &lt;li&gt;A firewall is blocking &lt;code&gt;*.devtunnels.ms:443&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;strong&gt;Resolution:&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Verify the sender is running and shows a tunnel URL in its output&lt;/li&gt;
-&lt;li&gt;Confirm the receiver is using the exact URL from the current sender session (URLs change on each restart)&lt;/li&gt;
-&lt;li&gt;Test connectivity: &lt;code&gt;curl -I https://&amp;lt;tunnel-url&amp;gt;&lt;/code&gt; — you should get a 200 or 401 response&lt;/li&gt;
+&lt;li&gt;Confirm the receiver is using the tunnel ID/region/port from the &lt;strong&gt;current&lt;/strong&gt; sender session (tunnel ID changes on each restart)&lt;/li&gt;
+&lt;li&gt;Test connectivity: &lt;code&gt;curl -I https://&amp;lt;tunnel-id&amp;gt;.&amp;lt;region&amp;gt;.devtunnels.ms:&amp;lt;port&amp;gt;&lt;/code&gt; — you should get a 200 or 401 response&lt;/li&gt;
 &lt;li&gt;Check your firewall allows outbound HTTPS to &lt;code&gt;*.devtunnels.ms:443&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;If you restarted the sender, start the receiver fresh with the new URL and secret:&lt;/p&gt;</description></item><item><title>UI &amp; Queue Issues</title><link>https://cloud-share-docs.garrardkitchen.com/docs/troubleshooting/ui-issues/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://cloud-share-docs.garrardkitchen.com/docs/troubleshooting/ui-issues/</guid><description>&lt;h2 id="queue-appears-blank--items-dont-appear"&gt;Queue appears blank / items don&amp;rsquo;t appear &lt;a href="#queue-appears-blank--items-dont-appear" class="anchor" aria-hidden="true"&gt;&lt;i class="material-icons align-middle"&gt;link&lt;/i&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Symptom:&lt;/strong&gt; The receiver queue is empty even though the sender has items queued.&lt;/p&gt;
